@@ -14,6 +14,7 @@ import type { Category, Task } from '../lib/types';
 import { useTasks } from '../hooks/useTasks';
 import { moveTaskPatch } from '../components/Boards';
 import { PixelIcon } from '../components/PixelIcon';
+import { DEFAULT_TIME } from '../components/QuestForm';
 
 const HOLIDAY_EVENTS: EventInput[] = allHolidays().map(([k, name]) => ({
   id: `holiday-${k}`,
@@ -65,12 +66,27 @@ function renderEvent(arg: EventContentArg) {
 }
 
 export function CalendarPage() {
-  const { tasks, openForm, update } = useTasks();
+  const { tasks, openForm, update, today } = useTasks();
   const events = useMemo(() => [...HOLIDAY_EVENTS, ...toEvents(tasks)], [tasks]);
 
   const onDateClick = (a: DateClickArg) => {
     const key = dateKey(a.date);
     openForm({ initial: { title: '', kind: 'quest', due_at: a.allDay ? allDayIso(key) : a.date.toISOString(), all_day: a.allDay } });
+  };
+
+  /** 하단 범례를 누르면 그 카테고리로 오늘 날짜 등록 창을 연다 (약속은 기본 시각) */
+  const newOfCategory = (c: Category) => {
+    const appt = APPOINTMENT_CATEGORIES.includes(c as never);
+    const time = appt ? DEFAULT_TIME[c] : undefined;
+    openForm({
+      initial: {
+        title: '',
+        kind: appt ? 'appointment' : 'quest',
+        category: c,
+        due_at: time ? new Date(`${today}T${time}`).toISOString() : allDayIso(today),
+        all_day: !time,
+      },
+    });
   };
 
   const onEventClick = (a: EventClickArg) => {
@@ -128,14 +144,21 @@ export function CalendarPage() {
       <section className="px-box tight">
         <div className="chip-set">
           {[...QUEST_CATEGORIES, ...APPOINTMENT_CATEGORIES].map((c) => (
-            <span key={c} className="chip" style={{ borderColor: CATEGORIES[c].color, cursor: 'default', borderStyle: APPOINTMENT_CATEGORIES.includes(c as never) ? 'dashed' : 'solid' }}>
+            <button
+              key={c}
+              type="button"
+              className="chip legend-chip"
+              title={`${CATEGORIES[c].label} 등록`}
+              onClick={() => newOfCategory(c)}
+              style={{ borderColor: CATEGORIES[c].color, borderStyle: APPOINTMENT_CATEGORIES.includes(c as never) ? 'dashed' : 'solid' }}
+            >
               <PixelIcon name={c} size={14} />
               {CATEGORIES[c].label}
-            </span>
+            </button>
           ))}
           <span className="chip" style={{ borderColor: '#ff8a8a', cursor: 'default' }}>공휴일</span>
         </div>
-        <div className="tiny muted" style={{ marginTop: 6 }}>날짜를 누르면 새로 등록하고, 일정을 끌어 옮기면 기한이 바뀌어요.</div>
+        <div className="tiny muted" style={{ marginTop: 6 }}>카테고리를 누르면 그 카테고리로 바로 등록해요. 날짜를 누르면 그날로 등록하고, 일정을 끌어 옮기면 기한이 바뀌어요.</div>
       </section>
     </div>
   );

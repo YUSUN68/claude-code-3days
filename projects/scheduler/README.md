@@ -2,6 +2,9 @@
 
 업무를 레트로 픽셀 게임의 퀘스트처럼 관리하는 스케줄러. 웹 브라우저와 윈도우 프로그램(바탕화면 위젯 포함) 두 가지로 쓸 수 있다.
 
+- 웹: https://quest-scheduler-red.vercel.app
+- 윈도우 설치 파일: https://github.com/YUSUN68/quest-scheduler/releases/latest/download/QuestScheduler-Setup.exe
+
 ## 실행
 
 ```bash
@@ -15,9 +18,15 @@ npm test               # 워킹데이·주간 범위·빠른 등록 단위 테�
 ## 윈도우 프로그램 받기
 
 - **웹에서 받기:** 로그인 → 오른쪽 위 사람 아이콘 → "윈도우 프로그램 다운로드"
-  - 웹 서버가 `release/` 폴더의 가장 최근 설치 파일을 `/download/windows` 주소로 내려준다
-  - 설치 파일이 없으면 메뉴에 "아직 없어요"라고 나온다. 먼저 `npm run dist:win`으로 만든다
+  - 배포판(Vercel)은 `VITE_DOWNLOAD_URL`에 넣은 GitHub Releases 주소로 받는다
+  - 로컬 개발 서버는 `release/` 폴더의 가장 최근 설치 파일을 `/download/windows` 주소로 내려준다
 - **직접 받기:** `release/QuestScheduler Setup x.y.z.exe`를 복사해 실행한다
+
+## 배포
+
+- **웹 (Vercel):** `vercel deploy --prod`. 환경 변수 `VITE_SUPABASE_URL`, `VITE_SUPABASE_ANON_KEY`, `VITE_VAPID_PUBLIC_KEY`, `VITE_DOWNLOAD_URL`을 Vercel 프로젝트에 넣어 둔다
+- **윈도우 설치 파일:** `.env.local`의 `VITE_WEB_URL`을 배포 주소로 두고 `npm run dist:win` → 파일 이름을 `QuestScheduler-Setup.exe`로 바꿔 새 GitHub Release에 올린다 (`releases/latest/download/...` 주소는 항상 최신 릴리스를 가리킨다)
+- **Supabase:** Authentication → URL Configuration의 Redirect URLs에 `https://quest-scheduler-red.vercel.app/reset-password`를 넣어야 비밀번호 재설정 링크가 동작한다
 
 ## 기능
 

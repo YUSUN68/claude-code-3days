@@ -72,10 +72,17 @@ Claude Code 대화 26개를 날짜순으로 정리했습니다. 각 항목의 �
 5. UI 다듬기: 대시보드/캘린더 전환 탭, 위젯 열림 버튼 비활성화, **중요도에 따른 XP**, 캘린더 등록 버튼, DEPLOY PIPELINE 화살표, 마이페이지 아이콘(내 이메일 표시), 설치 파일 다운로드 메뉴, 휴가 시작일 자동 설정, 점심·저녁 약속은 SOCIAL에만, 퀘스트명 앞에 `[회의]` 형식, 깜빡임 효과 정리
 6. 완료한 업무 카드에 **완료일 표시** ("✓ 11/12(목) 완료")
 7. **처리 내역** 버튼: 이번 주/지난 주/이번 달/지난 달/직접 지정 기간에 완료한 퀘스트, 얻은 XP, 카테고리별 건수를 보고 주간 보고용 텍스트로 복사
-8. 공개 저장소 [`YUSUN68/quest-scheduler`](https://github.com/YUSUN68/quest-scheduler) 생성, **Vercel 배포** https://quest-scheduler-red.vercel.app (비밀번호 재설정 링크도 배포 주소로)
-9. 결과물: 웹앱 + 윈도우 설치 파일 `QuestScheduler Setup 0.1.0.exe` ([Releases](https://github.com/YUSUN68/claude-code-3days/releases))
+8. 공개 저장소 [`YUSUN68/quest-scheduler`](https://github.com/YUSUN68/quest-scheduler) 생성, **Vercel 배포** https://quest-scheduler-red.vercel.app (비밀번호 재설정 링크도 배포 주소로, Supabase Redirect URL은 직접 추가)
+9. 설치 파일을 quest-scheduler 저장소 [Releases](https://github.com/YUSUN68/quest-scheduler/releases/latest)에 올리고, 웹 메뉴의 **윈도우 프로그램 다운로드**가 그 파일을 받게 변경
+10. 캘린더 아래 카테고리 범례를 누르면 그 카테고리가 선택된 등록 창이 열림 (약속은 기본 시각, 휴가·출장은 오늘~오늘)
+11. **발표 슬라이드**: 가짜 데모 계정과 예시 데이터로 기능 15개를 Playwright로 직접 조작하며 녹화하고, 27장짜리 슬라이드를 [아티팩트](https://claude.ai/artifact/JQxdys5xdwakAJtFhNMEHv)로 발행 (←→ 넘기기, F 전체 화면, N 발표자 노트). 윈도우 알림 팝업은 PC 알림 설정이 꺼져 있어 녹화하지 못함
+12. 결과물: 웹앱 + 윈도우 설치 파일 `QuestScheduler Setup 0.1.0.exe`
 
-> 14:15 기준으로 담았습니다. 이때 스케줄러 대화에서는 설치 파일을 quest-scheduler 저장소 Releases에 올리고 다운로드 메뉴를 그 주소로 바꾸는 작업이 진행 중이었습니다.
+> 15:50 기준으로 담았습니다. 이때 발표 슬라이드는 아직 비공개였고, 게시판 공유와 데모 계정 삭제는 남아 있었습니다.
+
+### 🕯️ ONGI 쇼핑몰 상세페이지 (`projects/shopping`)
+🔗 [대화](sessions/2026-11-11_shopping_d1aa9087.md)
+- 상품 상세페이지 강화: 상세 사진, 특징 카드, 사이즈·소재·관리 방법 표, 선물 포장 안내 → Vercel 재배포
 
 ### 📚 개인 위키 (`projects/mywiki`)
 🔗 [대화](sessions/2026-11-13_mywiki_af685dc1.md)
@@ -83,7 +90,7 @@ Claude Code 대화 26개를 날짜순으로 정리했습니다. 각 항목의 �
 - 이번 달 메일 제목을 모아 주제 지도(바이브코딩, AI 도구, 업무, 생활과 취미, 경제와 시사) 설계
 
 ### 📦 이 저장소 만들기
-- 3일간의 프로젝트·대화 기록·Claude 기억을 공개 GitHub 저장소 하나로 정리하고, 14:15 기준으로 한 번 더 업데이트 · 🔗 [대화](sessions/2026-11-13_scheduler_cad8ff6a.md)
+- 3일간의 프로젝트·대화 기록·Claude 기억을 공개 GitHub 저장소 하나로 정리하고, 14:15, 15:50 기준으로 다시 업데이트 · 🔗 [대화](sessions/2026-11-13_scheduler_cad8ff6a.md)
 
 ---
 

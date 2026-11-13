@@ -2,8 +2,8 @@
 
 - 프로젝트: `scheduler`
 - 세션 ID: `cad8ff6a-2f3a-42c2-972b-541cdeb8d5ab`
-- 기간: 2026-11-13 13:39 ~ 2026-11-13 14:11 (KST)
-- 사용자 요청 수: 3
+- 기간: 2026-11-13 13:39 ~ 2026-11-13 15:49 (KST)
+- 사용자 요청 수: 4
 
 
 > 원본 대화 기록(.jsonl)에서 사용자 요청과 Claude의 답변만 추렸습니다. 도구 사용은 🔧 한 줄로 요약했고, 키·토큰·이메일은 가렸습니다.
@@ -144,4 +144,68 @@ Now switching scheduler to the Git-file-list copy in the sync script and re-runn
 
 Scheduler is now deployed on Vercel (quest-scheduler-red.vercel.app) with its own repo. Next: re-exporting the conversation logs.
 
-> 🔧 Bash: Re-export sessions, rebuild index, extract new scheduler work
+> 🔧 Bash: Re-export sessions, rebuild index, extract new scheduler work · Read `C:\Users\student\AppData\Local\Temp\claude\1fc7f43a6dfc7170\cad8ff6a-2f3a-42c2-972b-541cdeb8d5ab\scratchpad\sched_new.txt`
+
+**🤖 Claude:**
+
+The scheduler session is still working (deploying to Vercel and rebuilding the installer). Before I re-upload the installer, I'll check whether a rebuild is running right now.
+
+> 🔧 PowerShell: Check installer timestamp and running build processes
+
+**🤖 Claude:**
+
+No build is running now; the installer finished rebuilding at 14:11. Updating the README and work log with the new scheduler work.
+
+> 🔧 Bash: Locate lines to update in README and work log · Bash: Add new scheduler work to README and work log · Bash: Rescan for secrets, commit, and push the update · Bash: Find every variant of the email username in all commits · Edit `C:\Users\student\AppData\Local\Temp\claude\1fc7f43a6dfc7170\cad8ff6a-2f3a-42c2-972b-541cdeb8d5ab\scratchpad\export_sessions.py` · Bash: Rewrite all commits to remove the email username variants · Bash: Check which refs still hold the old commits
+
+**🤖 Claude:**
+
+Local history is clean; only the GitHub copy still has the old commits. Force-pushing the cleaned history, then replacing the release (its tag points at the old first commit).
+
+> 🔧 Bash: Force-push cleaned history and remove old release and tag · Bash: Recreate release with the newest installer on cleaned history
+
+**🤖 Claude:**
+
+Final check: a fresh clone from GitHub, confirming the leak is gone and the updated scheduler still builds and passes its tests.
+
+> 🔧 PowerShell: Fresh clone check for leak, then build and test scheduler
+
+**🤖 Claude:**
+
+저장소를 14:15 기준으로 업데이트했습니다. 👉 https://github.com/YUSUN68/claude-code-3days
+
+**이번에 바뀐 것**
+- **퀘스트 스케줄러 새 기능**
+  - 완료한 업무에 완료일 표시
+  - 처리 내역 버튼: 기간을 정해 완료한 업무, XP, 카테고리별 건수를 보고 텍스트로 복사
+- **스케줄러 배포 정보**: 첫 업로드 뒤에 스케줄러가 Vercel에 배포되었고([quest-scheduler-red.vercel.app](https://quest-scheduler-red.vercel.app)) 자체 저장소([YUSUN68/quest-scheduler](https://github.com/YUSUN68/quest-scheduler))도 생겼습니다. README와 작업 일지에 링크를 넣었습니다.
+- **대화 기록**: 스케줄러 대화와 이 정리 대화를 최신 내용으로 바꿨습니다. 대화는 모두 27개입니다.
+- **설치 파일**: Releases의 설치 파일을 14:11에 새로 만든 버전으로 바꿨습니다.
+
+**고친 문제 하나**
+다시 검사하다가 대화 기록 한 곳에서 이메일 아이디의 오타 버전(`[REDACTED]`)을 찾았습니다. 처음 업로드부터 올라가 있었는데, 제 가림 규칙이 놓친 것입니다. 이렇게 처리했습니다.
+- 모든 커밋에서 그 부분을 지우고 GitHub에 다시 올렸습니다(강제 푸시).
+- 예전 커밋을 가리키던 Release도 지우고 새로 만들었습니다.
+- 새로 받은 사본에서 찾아보니 0건입니다.
+
+다만 GitHub는 지운 예전 커밋을 정확한 커밋 주소로 한동안 열 수 있게 남겨 둘 수 있습니다. 그 주소는 어디에도 링크되어 있지 않습니다.
+
+**확인한 것**
+GitHub에서 새로 받은 사본으로 스케줄러를 설치, 빌드, 테스트했고 모두 통과했습니다(테스트 22개).
+
+**안 들어간 것**
+스케줄러 세션이 아직 작업 중이었습니다. 설치 파일을 quest-scheduler 저장소에 올리고 다운로드 메뉴를 그 주소로 바꾸는 중이라, 14:15 이후의 변경은 들어가 있지 않습니다. 그 작업이 끝난 뒤 "업데이트해줘"라고 하시면 다시 반영하겠습니다.
+
+### 🙋 사용자 (11-13 15:49)
+
+> 업데이트해줘
+
+_(대화가 길어져 이전 내용이 요약되고 이어짐)_
+
+> 🔧 Bash: Check time, scheduler commits, installer and releases · Bash: Inspect recent scheduler commits and session files · Bash: Find new sessions, folders and project changes · Bash: Re-sync projects into repo and show diff · Bash: Show staged changes summary
+
+**🤖 Claude:**
+
+스케줄러 쪽 새 변경 4개 파일만 잡혔습니다. 대화 기록을 다시 내보내겠습니다.
+
+> 🔧 Bash: Export sessions and copy into repo

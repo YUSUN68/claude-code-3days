@@ -14,7 +14,7 @@ const OFFSETS = [
   { m: 60, label: '1시간 전' },
   { m: 120, label: '2시간 전' },
 ];
-const DEFAULT_TIME: Partial<Record<Category, string>> = { lunch: '12:00', dinner: '18:30', personal: '19:00' };
+export const DEFAULT_TIME: Partial<Record<Category, string>> = { lunch: '12:00', dinner: '18:30', personal: '19:00' };
 
 function parts(iso: string | null | undefined, allDay: boolean | undefined) {
   if (!iso) return { date: '', time: '' };
