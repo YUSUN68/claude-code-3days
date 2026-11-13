@@ -1,0 +1,2 @@
+- [Shared Supabase project](shared-supabase-project.md) — YUSUN1 also hosts another app; shop uses shop_ prefix only
+- [Vercel deployment](vercel-deployment.md) — prod at ongi-shop.vercel.app, CLI deploys, gitignore gotcha

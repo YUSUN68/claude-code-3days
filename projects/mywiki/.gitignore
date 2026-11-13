@@ -1,0 +1,9 @@
+# Obsidian 개인 작업 공간 상태
+.obsidian/workspace*.json
+.obsidian/cache
+.trash/
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini

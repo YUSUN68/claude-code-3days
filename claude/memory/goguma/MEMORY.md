@@ -1,0 +1,1 @@
+- [고구마마켓 배포/DB 설정](goguma-deploy-setup.md) — shared Supabase w/ 가계부, GitHub repo, Vercel URL, Node PATH

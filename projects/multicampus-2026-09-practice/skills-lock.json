@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "skills": {
+    "create-typecast-shorts": {
+      "source": "neosapience/typecast-skills",
+      "sourceType": "github",
+      "skillPath": "skills/create-typecast-shorts/SKILL.md",
+      "computedHash": "86657a6fb1ac60974601795f188e0d3e47da3af80f2dc96e5f0fadd488f76a70"
+    }
+  }
+}

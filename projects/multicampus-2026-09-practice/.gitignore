@@ -1,0 +1,15 @@
+# 이 폴더 전용 Python 공간 (가상환경) — 용량이 크고 PC마다 다시 만들면 됨
+.venv/
+__pycache__/
+*.pyc
+
+# 엑셀·워드·PPT를 열어둘 때 생기는 임시 잠금 파일
+~$*
+
+# 운영체제가 자동으로 만드는 파일
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# Claude 개인 설정 (이 PC에서만 쓰는 값)
+.claude/settings.local.json

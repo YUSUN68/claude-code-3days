@@ -1,0 +1,1 @@
+- [Shared Supabase project](supabase-shared-project.md) — scheduler lives in YUSUN1 next to other apps; use sched_ prefix, don't touch other tables

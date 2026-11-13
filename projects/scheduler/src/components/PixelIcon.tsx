@@ -1,0 +1,253 @@
+import { memo } from 'react';
+import type { Category } from '../lib/types';
+
+/** 16×16 픽셀 아이콘. 문자 하나가 픽셀 하나 ('.'는 투명) */
+const PALETTE: Record<string, string> = {
+  k: '#0d0b1f',
+  w: '#f4f4f4',
+  s: '#b8b5d6',
+  g: '#7f7ca3',
+  y: '#ffd84a',
+  o: '#ff8a3d',
+  r: '#ff5a5a',
+  b: '#5fb4ff',
+  c: '#3fd6c6',
+  G: '#5ee07a',
+  n: '#9a6334',
+  p: '#c58bff',
+  P: '#ff6fae',
+  t: '#f6c177',
+};
+
+const B = '................';
+
+const CATEGORY_ICONS = {
+  meeting: [B, B,
+    '.kkkkkkkkk......',
+    'kwwwwwwwwwk.....',
+    'kwkwkwkwwwk.....',
+    'kwwwwwwwwwk.....',
+    '.kkwkkkkkkkkkkk.',
+    '..kwkkbbbbbbbbbk',
+    '...k.kbbbbbbbbbk',
+    '.....kbwbbwbbwbk',
+    '.....kbbbbbbbbbk',
+    '......kkkkkkbbkk',
+    '...........kbk..',
+    '............k...', B, B],
+  trip: [B, B,
+    '......kkkk......',
+    '.....kk..kk.....',
+    '.....k....k.....',
+    '.kkkkkkkkkkkkkk.',
+    'kttttttttttttttk',
+    'knttttttttttttnk',
+    'kttttttttttttttk',
+    'kkkkkkkyykkkkkkk',
+    'kttttttyyttttttk',
+    'kttttttttttttttk',
+    'knttttttttttttnk',
+    'kttttttttttttttk',
+    '.kkkkkkkkkkkkkk.', B],
+  work: [B,
+    '............kkk.',
+    '...........kwwk.',
+    '..........kwwsk.',
+    '.........kwwsk..',
+    '........kwwsk...',
+    '.......kwwsk....',
+    '..kk..kwwsk.....',
+    '..kyykwwsk......',
+    '...kyysk........',
+    '....kyyk........',
+    '...knkkyk.......',
+    '..knk..kk.......',
+    '.kyk............',
+    '.kk.............', B],
+  deploy: [B,
+    '.......kk.......',
+    '......kwwk......',
+    '.....kwwwwk.....',
+    '.....kwwwwk.....',
+    '.....kwbbwk.....',
+    '.....kwbbwk.....',
+    '.....kwwwwk.....',
+    '....kkwwwwkk....',
+    '...krkwwwwkrk...',
+    '...krkwwwwkrk...',
+    '...kkkkkkkkkk...',
+    '.....koyyok.....',
+    '......koyk......',
+    '.......kk.......', B],
+  vacation: [B,
+    '....kkk..kkk....',
+    '...kGGGkkGGGk...',
+    '..kGGkGGGGkGGk..',
+    '..kGk.kGGk.kGk..',
+    '..kk..knnk..kk..',
+    '.......knk......',
+    '......knk.......',
+    '......knk.......',
+    '.......knk......',
+    '.......knk......',
+    '......knk.......',
+    '...kkkkkkkkkk...',
+    '..kyyyyyyyyyyk..',
+    '..kcccccccccck..', B],
+  training: [B, B,
+    '.kkkkkk..kkkkkk.',
+    'kwwwwwwkkwwwwwwk',
+    'kwggggwkkwggggwk',
+    'kwwwwwwkkwwwwwwk',
+    'kwggggwkkwggggwk',
+    'kwwwwwwkkwwwwwwk',
+    'kwgggwwkkwgggwwk',
+    'kwwwwwwkkwwwwwwk',
+    'kyyyyyykkyyyyyyk',
+    '.kkkkkkyykkkkkk.',
+    '.......kk.......', B, B, B],
+  event: [B,
+    '..kyk...........',
+    '..kgkkkkkkkk....',
+    '..kgkPPPPPPPk...',
+    '..kgkPPwPPPPPk..',
+    '..kgkPPPPPPPPPk.',
+    '..kgkPPPPPPPPk..',
+    '..kgkPPPPPPPk...',
+    '..kgkkkkkkkk....',
+    '..kgk...........',
+    '..kgk...........',
+    '..kgk...........',
+    '..kgk...........',
+    '.kkkkk..........',
+    '.kgggk..........',
+    '.kkkkk..........'],
+  etc: [B,
+    '......kkkk......',
+    '......knnk......',
+    '......kkkk......',
+    '......kwwk......',
+    '......kwwk......',
+    '.....kwwwwk.....',
+    '....kwwwwwwk....',
+    '...kppppppppk...',
+    '...kpwppppppk...',
+    '...kpwppppppk...',
+    '...kppppppppk...',
+    '....kppppppk....',
+    '.....kkkkkk.....', B, B],
+  lunch: [B, B,
+    '......kkkk......',
+    '....kkwwwwkk....',
+    '...kwwwwwwwwk...',
+    '..kwwwwwwwwwwk..',
+    '.kkkkkkkkkkkkkk.',
+    '.kttttttttttttk.',
+    '..kttbttttbttk..',
+    '..kttttttttttk..',
+    '...kttttttttk...',
+    '....kkkkkkkk....',
+    '.....knnnnk.....',
+    '.....kkkkkk.....', B, B],
+  dinner: [B,
+    '.......yy.......',
+    '......y..y......',
+    B,
+    '..kkkkk..kkkkk..',
+    '..kwwwk..kwwwk..',
+    'kkkyyyk..kyyykkk',
+    'k.kyyyk..kyyyk.k',
+    'k.kyyyk..kyyyk.k',
+    'kkkyyyk..kyyykkk',
+    '..kyyyk..kyyyk..',
+    '..kkkkk..kkkkk..', B, B, B, B],
+  personal: [B, B, B,
+    'kkk..........kkk',
+    'kbbk..kkkk..kssk',
+    'kbbbkkttttkkkssk',
+    'kbbktttkttttkssk',
+    'kbbkttkttkttkssk',
+    'kbbktttttktttssk',
+    'kbbbkttttttkkssk',
+    'kkkk.kkttttk.kkk',
+    '......kkkkk.....', B, B, B, B],
+} satisfies Record<Category, string[]>;
+
+export const ICONS = {
+  ...CATEGORY_ICONS,
+  dashboard: [B, B,
+    'kkkkkkkkkkkkkkkk',
+    'kwwwwwwkkyyyyyyk',
+    'kwbbbbwkkyyyyyyk',
+    'kwwwwwwkkyyyyyyk',
+    'kwbbbwwkkkkkkkkk',
+    'kwwwwwwkkGGGGGGk',
+    'kwbbbbwkkGGGGGGk',
+    'kwwwwwwkkGGGGGGk',
+    'kwbbwwwkkGGGGGGk',
+    'kwwwwwwkkGGGGGGk',
+    'kkkkkkkkkkkkkkkk', B, B, B],
+  user: [B,
+    '.....kkkkkk.....',
+    '....kttttttk....',
+    '...kttttttttk...',
+    '...kttkttkttk...',
+    '...kttttttttk...',
+    '....kttttttk....',
+    '.....kkkkkk.....',
+    '...kkbbbbbbkk...',
+    '..kbbbbbbbbbbk..',
+    '.kbbbbbbbbbbbbk.',
+    '.kbbbbbbbbbbbbk.',
+    '.kbbbbbbbbbbbbk.',
+    '.kkkkkkkkkkkkkk.', B, B],
+  calendar: [B,
+    '...k......k.....',
+    '.kkykkkkkkykkkk.',
+    '.krrrrrrrrrrrrk.',
+    '.krrrrrrrrrrrrk.',
+    '.kkkkkkkkkkkkkk.',
+    '.kwwwwwwwwwwwwk.',
+    '.kwgwwgwwgwwgwk.',
+    '.kwwwwwwwwwwwwk.',
+    '.kwgwwgwwgwwgwk.',
+    '.kwwwwwwwwwwwwk.',
+    '.kwgwwgwwgwwywk.',
+    '.kwwwwwwwwwwwwk.',
+    '.kkkkkkkkkkkkkk.', B, B],
+};
+
+export type IconName = keyof typeof ICONS;
+
+const cache = new Map<string, JSX.Element[]>();
+
+function rects(name: IconName): JSX.Element[] {
+  const hit = cache.get(name);
+  if (hit) return hit;
+  const out: JSX.Element[] = [];
+  ICONS[name].forEach((row, y) => {
+    for (let x = 0; x < 16; x++) {
+      const fill = PALETTE[row[x]];
+      if (fill) out.push(<rect key={`${x}-${y}`} x={x} y={y} width={1.02} height={1.02} fill={fill} />);
+    }
+  });
+  cache.set(name, out);
+  return out;
+}
+
+export const PixelIcon = memo(function PixelIcon({ name, size = 20, title }: { name: IconName; size?: number; title?: string }) {
+  return (
+    <svg
+      className="pixel-icon"
+      width={size}
+      height={size}
+      viewBox="0 0 16 16"
+      shapeRendering="crispEdges"
+      role={title ? 'img' : undefined}
+      aria-hidden={title ? undefined : true}
+      aria-label={title}
+    >
+      {rects(name)}
+    </svg>
+  );
+});
