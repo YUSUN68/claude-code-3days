@@ -88,7 +88,7 @@ Token lives outside the folder — good. Now creating the repository and the ign
 
 ### 🙋 사용자 (11-12 13:47)
 
-> 오타야 [REDACTED]@gmail.com이야
+> 오타야 [REDACTED_EMAIL]이야
 
 > 🔧 Bash: Fix email and update author on the first commit
 
@@ -97,8 +97,8 @@ Token lives outside the folder — good. Now creating the repository and the ign
 이메일을 고쳤어요 ✅ 첫 커밋에 남은 작성자 정보도 바로잡았어요.
 
 **📌 바뀐 내용**
-- 📧 이 폴더의 이메일 설정: `[REDACTED]@...` → `[REDACTED]@gmail.com`
-- 👤 첫 커밋 작성자: YUSUN `<[REDACTED]@gmail.com>`
+- 📧 이 폴더의 이메일 설정: `[REDACTED]@...` → `[REDACTED_EMAIL]`
+- 👤 첫 커밋 작성자: YUSUN `<[REDACTED_EMAIL]>`
 - 🆔 작성자 정보를 고치면 커밋 번호도 새로 정해져요. `8128376` → `40290f8`로 바뀌었어요.
 - 📦 저장된 파일 56개와 커밋 메시지는 그대로예요.
 
@@ -153,7 +153,7 @@ Same 4 changes as before — committing now.
 **📌 커밋 정보**
 - 🆔 번호: `939a88b`
 - 📝 메시지: 다운로드 폴더 파일 수정
-- 👤 작성자: YUSUN `<[REDACTED]@gmail.com>`
+- 👤 작성자: YUSUN `<[REDACTED_EMAIL]>`
 
 **📂 저장된 변경**
 - ✏️ `메모_TODO.txt`: 할 일 "사무실 증축 도면 검토"를 추가했어요.
@@ -191,7 +191,7 @@ Only the source caption mentions the old name — not a link, so nothing breaks.
 **📌 커밋 정보**
 - 🆔 번호: `31744b4`
 - 📝 메시지: 매출 통합 파일 이름 변경
-- 👤 작성자: YUSUN `<[REDACTED]@gmail.com>`
+- 👤 작성자: YUSUN `<[REDACTED_EMAIL]>`
 - ✅ 커밋하지 않은 변경은 남아 있지 않아요. 지금까지 커밋은 3개예요.
 
 **💡 참고**
@@ -234,7 +234,7 @@ Only the source caption mentions the old name — not a link, so nothing breaks.
 **📌 커밋 정보**
 - 🆔 번호: `e876c2e`
 - 📝 메시지: 매출 통합 파일 이름 원래대로 되돌림
-- 👤 작성자: YUSUN `<[REDACTED]@gmail.com>`
+- 👤 작성자: YUSUN `<[REDACTED_EMAIL]>`
 - 🔁 변경: `2026년_01-08월_매출_통합이다.xlsx` → `2026년_01-08월_매출_통합.xlsx`
 
 **📜 지금까지의 기록 (최신순)**

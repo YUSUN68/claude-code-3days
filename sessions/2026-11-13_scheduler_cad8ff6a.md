@@ -2,9 +2,9 @@
 
 - 프로젝트: `scheduler`
 - 세션 ID: `cad8ff6a-2f3a-42c2-972b-541cdeb8d5ab`
-- 기간: 2026-11-13 13:39 ~ 2026-11-13 15:49 (KST)
-- 사용자 요청 수: 4
-
+- 기간: 2026-11-13 13:39 ~ 2026-11-13 16:57 (KST)
+- 사용자 요청 수: 5
+- 추가된 코드 줄 수: 489
 
 > 원본 대화 기록(.jsonl)에서 사용자 요청과 Claude의 답변만 추렸습니다. 도구 사용은 🔧 한 줄로 요약했고, 키·토큰·이메일은 가렸습니다.
 
@@ -208,4 +208,52 @@ _(대화가 길어져 이전 내용이 요약되고 이어짐)_
 
 스케줄러 쪽 새 변경 4개 파일만 잡혔습니다. 대화 기록을 다시 내보내겠습니다.
 
-> 🔧 Bash: Export sessions and copy into repo
+> 🔧 Bash: Export sessions and copy into repo · Bash: Inspect session diffs · Bash: Restore file, fix redaction order, read new scheduler log · Bash: Read end of scheduler session log · Bash: Inspect index header and references to update · Bash: Update README, WORKLOG and session index
+
+**🤖 Claude:**
+
+문서 갱신을 마쳤습니다. 이제 올리기 전에 비밀값과 개인정보를 검사합니다.
+
+> 🔧 Bash: Scan staged tree for secrets and personal emails · Bash: Check new session text for credentials
+
+**🤖 Claude:**
+
+Clean. Commit, push, and replace the release installer with the 14:19 build.
+
+> 🔧 Bash: Commit, push, and replace release installer · Bash: Fresh clone, build and test scheduler · Bash: Remove test clone
+
+**🤖 Claude:**
+
+저장소를 15:50 기준으로 다시 업데이트해서 GitHub에 올렸습니다. 👉 https://github.com/YUSUN68/claude-code-3days
+
+**새로 들어간 것**
+- **퀘스트 스케줄러**
+  - 새 기능: 캘린더 아래 카테고리 범례를 누르면 그 카테고리가 선택된 등록 창이 열립니다.
+  - 설치 파일: quest-scheduler 저장소의 Releases에도 올라갔고, 웹 메뉴의 다운로드가 그 파일을 받게 바뀌었습니다.
+  - 발표 슬라이드: 27장짜리 [아티팩트](https://claude.ai/artifact/JQxdys5xdwakAJtFhNMEHv)로 발행된 것을 작업 일지와 README에 링크했습니다. 아직 비공개라 지금은 본인만 열 수 있습니다.
+- **ONGI 쇼핑몰**: 상세페이지 작업이 커밋과 Vercel 배포까지 끝나서, 작업 일지 3일차에 따로 적었습니다.
+- **대화 기록**: 스케줄러, 쇼핑몰, 이 정리 대화의 기록을 최신으로 바꿨습니다. 대화는 모두 26개입니다. 지난번에 27개라고 한 건 제가 잘못 센 것입니다.
+- **설치 파일**: 이 저장소 Releases의 설치 파일을 범례 기능까지 들어간 14:19 빌드로 바꿨습니다.
+
+**확인한 것**
+- 올리기 전에 이메일, 생년월일, 키, 토큰을 검사했고 걸린 것이 없었습니다.
+- GitHub에서 새로 받은 사본으로 스케줄러를 빌드했고, 테스트 22개가 모두 통과했습니다.
+
+**아직 안 끝난 것**
+스케줄러 대화가 아직 아래 일을 기다리고 있습니다. 끝난 뒤 "업데이트해줘"라고 하시면 다시 반영하겠습니다.
+- 발표 슬라이드를 전체 공개로 바꾸는 일
+- 게시판에 링크를 올리는 일
+- 윈도우 알림 장면을 다시 녹화하는 일
+- 데모 계정을 지우는 일
+
+### 🙋 사용자 (11-13 16:57)
+
+> 업데이트해줘
+
+> 🔧 Bash: Check time, scripts, scheduler and session changes
+
+**🤖 Claude:**
+
+스케줄러 코드는 그대로이고, 새 대화 하나(16:52)와 몇몇 기록 갱신이 있습니다. 다시 복사하고 내보내겠습니다.
+
+> 🔧 Bash: Re-sync projects and re-export sessions

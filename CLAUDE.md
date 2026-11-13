@@ -7,7 +7,9 @@
 2. 저장소 루트에서 `powershell -ExecutionPolicy Bypass -File .\setup.ps1`을 실행합니다. 이 스크립트가
    - `claude/memory/<프로젝트>`를 이 컴퓨터의 `~/.claude/projects/<경로 키>/memory`로 복사하고,
    - 각 프로젝트의 `.env.example`(shopping은 `.env.local.example`)을 `.env.local`로 복사하고,
-   - goguma·shopping·scheduler에서 `npm install`, multicampus 실습 폴더에 `.venv`를 만듭니다.
+   - goguma·shopping·scheduler에서 `npm install`, multicampus 실습 폴더에 `.venv`를 만들고,
+   - 전역 스킬(eli5, humanize-korean, kakao-windows)을 원본 저장소의 고정 커밋에서 받아 `~/.claude/skills`에 설치합니다. 스킬은 새 세션부터 적용됩니다.
+   - 카카오톡 리더의 첫 설정(`/kakao-windows 첫 설정`)은 실행하지 마세요. 사용자가 직접 요청할 때만 합니다.
 3. shopping의 `SUPABASE_SERVICE_ROLE_KEY`는 비어 있습니다. 결제완료 처리를 테스트할 때만 필요하니, 그때 사용자에게 Supabase 대시보드에서 직접 넣어 달라고 안내하세요. 키를 대신 받아 적지는 마세요.
 4. 끝나면 README.md의 "프로젝트별 실행 방법" 표대로 하나를 실행해 동작을 확인합니다.
 

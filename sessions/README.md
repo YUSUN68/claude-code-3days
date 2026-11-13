@@ -1,6 +1,6 @@
 # 대화 기록 (Claude Code 세션)
 
-3일 동안 나눈 Claude Code 대화 26개입니다. 사용자 요청과 Claude의 답변을 그대로 옮기고, 파일 수정·명령 실행 같은 도구 사용은 🔧 한 줄로 줄였습니다.
+3일 동안 나눈 Claude Code 대화 27개입니다. 사용자 요청과 Claude의 답변을 그대로 옮기고, 파일 수정·명령 실행 같은 도구 사용은 🔧 한 줄로 줄였습니다.
 API 키·토큰·이메일 주소·생년월일은 가렸습니다.
 
 | 시작 (KST) | 프로젝트 | 제목 | 요청 수 |
@@ -30,4 +30,5 @@ API 키·토큰·이메일 주소·생년월일은 가렸습니다.
 | 2026-11-12 17:00 | `multicampus-2026-09-practice` | [클로드코드 학습 및 자동화 정리](2026-11-12_multicampus-2026-09-practice_f541e50f.md) | 3 |
 | 2026-11-13 09:36 | `scheduler` | [업무 스케줄러 앱](2026-11-13_scheduler_67491744.md) | 42 |
 | 2026-11-13 11:27 | `mywiki` | [개인 위키백과 구축](2026-11-13_mywiki_af685dc1.md) | 3 |
-| 2026-11-13 13:39 | `scheduler` | [Claude 작업 내역 GitHub 정리](2026-11-13_scheduler_cad8ff6a.md) | 4 |
+| 2026-11-13 13:39 | `scheduler` | [Claude 작업 내역 GitHub 정리](2026-11-13_scheduler_cad8ff6a.md) | 5 |
+| 2026-11-13 16:51 | `scheduler` | [GitHub 저장소 스킬 통합](2026-11-13_scheduler_ee617fbf.md) | 1 |

@@ -1,6 +1,6 @@
 # 클로드 코드 3일 작업 모음 (2026-11-11 ~ 11-13)
 
-> 마지막 업데이트: 2026-11-13 15:50 (KST)
+> 마지막 업데이트: 2026-11-13 17:00 (KST)
 
 멀티캠퍼스 「비개발자를 위한 바이브코딩 입문 with 클로드 코드」 수업을 들으며 3일 동안 Claude Code로 만든 **모든 결과물과 대화 기록**을 한곳에 모았습니다.
 다른 컴퓨터에서 이 저장소 하나만 받으면 바로 이어서 쓸 수 있습니다.
@@ -10,11 +10,11 @@
 | 폴더 | 내용 |
 |---|---|
 | [`projects/`](projects) | 3일 동안 만든 프로젝트 7개 (소스 전체) |
-| [`sessions/`](sessions) | Claude Code 대화 기록 26개 (요청·답변을 읽기 쉽게 정리, 날짜순 목록은 [sessions/README.md](sessions/README.md)) |
+| [`sessions/`](sessions) | Claude Code 대화 기록 27개 (요청·답변을 읽기 쉽게 정리, 날짜순 목록은 [sessions/README.md](sessions/README.md)) |
 | [`WORKLOG.md`](WORKLOG.md) | 날짜별 작업 일지: 무엇을 만들고 무엇을 바꿨는지 |
 | [`claude/memory/`](claude/memory) | Claude가 프로젝트별로 기억하던 내용 (공유 Supabase 규칙, 배포 정보 등) |
 | [`claude/plans/`](claude/plans) | 큰 작업 전에 Claude와 세운 구현 계획서 (스케줄러, 쇼핑몰) |
-| [`setup.ps1`](setup.ps1) | 새 컴퓨터 준비 스크립트 (기억 복원, .env 만들기, 패키지 설치) |
+| [`setup.ps1`](setup.ps1) | 새 컴퓨터 준비 스크립트 (기억 복원, .env 만들기, 패키지 설치, 전역 스킬 설치) |
 | [Releases](https://github.com/YUSUN68/claude-code-3days/releases) | 퀘스트 스케줄러 윈도우 설치 파일 (`.exe`, 79MB라 소스와 따로 올림) |
 
 ## 🗂 프로젝트 7개
@@ -49,7 +49,7 @@ Claude가 저장소 맨 위의 [`CLAUDE.md`](CLAUDE.md)를 읽고 아래 순서�
    git clone https://github.com/YUSUN68/claude-code-3days.git
    cd claude-code-3days
    ```
-3. 준비 스크립트 실행: Claude 기억 복원, `.env.local` 만들기, `npm install`, Python 가상환경까지 한 번에
+3. 준비 스크립트 실행: Claude 기억 복원, `.env.local` 만들기, `npm install`, Python 가상환경, 전역 스킬 설치까지 한 번에
    ```powershell
    powershell -ExecutionPolicy Bypass -File .\setup.ps1
    ```
@@ -68,6 +68,18 @@ Claude가 저장소 맨 위의 [`CLAUDE.md`](CLAUDE.md)를 읽고 아래 순서�
 | scheduler (설치 파일 새로 만들기) | `npm run dist:win` → `release\` 폴더 | |
 | multicampus 실습 | 폴더를 Claude Code로 열기 (`.claude/skills`의 스킬이 자동으로 잡힘) | |
 | mywiki | Obsidian에서 `projects\mywiki` 폴더를 볼트로 열기, Claude Code에선 `/ingest` `/query` `/lint` | |
+
+## 🧩 전역 스킬 (어느 폴더에서든 자동으로 쓰임)
+
+11-13에 다른 사람이 공개한 스킬 저장소 3개를 전역 스킬로 설치했습니다. 코드는 이 저장소에 복사하지 않았고, `setup.ps1`이 처음 설치 때 검토한 버전(커밋 고정)을 원본 저장소에서 받아 `~/.claude/skills`에 설치합니다. 설치하지 않으려면 `-SkipSkills`를 붙이세요.
+
+| 원본 저장소 (MIT) | 설치되는 스킬 | 이렇게 말하면 쓰임 |
+|---|---|---|
+| [dreambigou/eli5](https://github.com/dreambigou/eli5) | `eli5` | "5살한테 설명하듯", "쉽게 풀어줘" |
+| [epoko77-ai/im-not-ai](https://github.com/epoko77-ai/im-not-ai) | `humanize-korean`, `humanize-scan`, `/humanize`, `/humanize-redo` (+ 보조 에이전트 4개) | "AI 티 없애줘", "번역투 고쳐", "이 글 AI 같아?" |
+| [DAYBYDAI/kakao-windows-reader](https://github.com/DAYBYDAI/kakao-windows-reader) | `kakao-windows` | "카톡 정리해 줘", "카톡에서 ○○ 찾아줘" (처음엔 `/kakao-windows 첫 설정을 해 줘`) |
+
+카카오톡 리더는 PC 카카오톡 대화를 읽기 전용으로 열어 AI에게 보내는 도구라, 공용 PC에서는 첫 설정을 하지 않는 편이 좋습니다.
 
 ## 🔐 비밀값 안내 (공개 저장소)
 
