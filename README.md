@@ -13,7 +13,7 @@
 | [`claude/memory/`](claude/memory) | Claude가 프로젝트별로 기억하던 내용 (공유 Supabase 규칙, 배포 정보 등) |
 | [`claude/plans/`](claude/plans) | 큰 작업 전에 Claude와 세운 구현 계획서 (스케줄러, 쇼핑몰) |
 | [`setup.ps1`](setup.ps1) | 새 컴퓨터 준비 스크립트 (기억 복원, .env 만들기, 패키지 설치) |
-| [Releases](../../releases) | 퀘스트 스케줄러 윈도우 설치 파일 (`.exe`, 79MB라 소스와 따로 올림) |
+| [Releases](https://github.com/YUSUN68/claude-code-3days/releases) | 퀘스트 스케줄러 윈도우 설치 파일 (`.exe`, 79MB라 소스와 따로 올림) |
 
 ## 🗂 프로젝트 7개
 
@@ -24,7 +24,7 @@
 | 11-11 | [`goguma`](projects/goguma) | 🍠 고구마마켓: 중고거래 (회원·상품·좋아요·채팅·알림) | Next.js 16 + Supabase + Vercel | [배포 사이트](https://goguma-market-flame.vercel.app) · [원본 저장소](https://github.com/YUSUN68/goguma-market) |
 | 11-11~13 | [`shopping`](projects/shopping) | ONGI 인테리어 선물 쇼핑몰 (예산 슬라이더, 토스 테스트 결제, 상세페이지) | Next.js 15 + Supabase + Toss | [배포 사이트](https://ongi-shop.vercel.app) |
 | 11-12 | [`multicampus-2026-09-practice`](projects/multicampus-2026-09-practice) | 업무 자동화 실습: 데이터 정리, 매출 통합·대시보드, 스킬 설치·제작 | Python + Claude 스킬 | `03_매출데이터/…대시보드.html` |
-| 11-13 | [`scheduler`](projects/scheduler) | ⚔️ 퀘스트 스케줄러: 업무를 게임 퀘스트처럼, 웹 + 윈도우 위젯 | Vite + React + Supabase + Electron | [설치 파일](../../releases) |
+| 11-13 | [`scheduler`](projects/scheduler) | ⚔️ 퀘스트 스케줄러: 업무를 게임 퀘스트처럼, 웹 + 윈도우 위젯 | Vite + React + Supabase + Electron | [설치 파일](https://github.com/YUSUN68/claude-code-3days/releases) |
 | 11-13 | [`mywiki`](projects/mywiki) | 카파시의 「LLM 위키」 방식으로 만든 개인 위키 (Obsidian) | Markdown | `wiki/index.md` |
 
 ## 💻 다른 컴퓨터에서 쓰기
@@ -62,7 +62,7 @@ Claude가 저장소 맨 위의 [`CLAUDE.md`](CLAUDE.md)를 읽고 아래 순서�
 | goguma | `cd projects\goguma; npm run dev` | http://localhost:3000 |
 | shopping | `cd projects\shopping; npm run dev` | http://localhost:3000 |
 | scheduler (웹) | `cd projects\scheduler; npm run dev` | http://localhost:5173 |
-| scheduler (윈도우 위젯) | `npm run desktop:dev` 또는 [Releases](../../releases)의 설치 파일 실행 | |
+| scheduler (윈도우 위젯) | `npm run desktop:dev` 또는 [Releases](https://github.com/YUSUN68/claude-code-3days/releases)의 설치 파일 실행 | |
 | scheduler (설치 파일 새로 만들기) | `npm run dist:win` → `release\` 폴더 | |
 | multicampus 실습 | 폴더를 Claude Code로 열기 (`.claude/skills`의 스킬이 자동으로 잡힘) | |
 | mywiki | Obsidian에서 `projects\mywiki` 폴더를 볼트로 열기, Claude Code에선 `/ingest` `/query` `/lint` | |

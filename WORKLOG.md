@@ -70,7 +70,7 @@ Claude Code 대화 26개를 날짜순으로 정리했습니다. 각 항목의 �
 3. **윈도우 프로그램(Electron) + 바탕화면 위젯**, 설치 파일(NSIS) 만들기, 제거 시 설정 폴더까지 삭제
 4. 로그인/회원가입: 이름, 비밀번호 8자 이상 안내, 비밀번호 확인, 가입 메일 인증은 끄고 비밀번호 재설정 메일만 사용
 5. UI 다듬기: 대시보드/캘린더 전환 탭, 위젯 열림 버튼 비활성화, **중요도에 따른 XP**, 캘린더 등록 버튼, DEPLOY PIPELINE 화살표, 마이페이지 아이콘(내 이메일 표시), 설치 파일 다운로드 메뉴, 휴가 시작일 자동 설정, 점심·저녁 약속은 SOCIAL에만, 퀘스트명 앞에 `[회의]` 형식, 깜빡임 효과 정리
-6. 결과물: 웹앱 + 윈도우 설치 파일 `QuestScheduler Setup 0.1.0.exe` ([Releases](../../releases))
+6. 결과물: 웹앱 + 윈도우 설치 파일 `QuestScheduler Setup 0.1.0.exe` ([Releases](https://github.com/YUSUN68/claude-code-3days/releases))
 
 ### 📚 개인 위키 (`projects/mywiki`)
 🔗 [대화](sessions/2026-11-13_mywiki_af685dc1.md)
