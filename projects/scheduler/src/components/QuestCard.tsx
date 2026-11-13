@@ -1,6 +1,6 @@
 import type { DragEvent } from 'react';
 import { CATEGORIES, DEPLOY_STAGES } from '../lib/categories';
-import { dayLabel, timeLabel } from '../lib/dates';
+import { dayLabel, isoKey, timeLabel } from '../lib/dates';
 import { isQuestLike, taskRange, urgency } from '../lib/today';
 import type { Task } from '../lib/types';
 import { useTasks } from '../hooks/useTasks';
@@ -78,6 +78,9 @@ export function QuestCard({ task: t, draggable, showDate = true, target = 'main'
           {showDate && <span>{whenLabel(t)}</span>}
           {!showDate && t.due_at && !t.all_day && <span>{timeLabel(t.due_at)}</span>}
           {dueText && <span className={u?.urgent ? 'warn' : ''}>{dueText}</span>}
+          {t.status === 'done' && t.completed_at && (
+            <span className="done-at">✓ {dayLabel(isoKey(t.completed_at))} 완료</span>
+          )}
           {t.location && <span className="loc">@{t.location}</span>}
           {(imageCounts[t.id] ?? 0) > 0 && <span className="loc">그림 {imageCounts[t.id]}</span>}
           {t.category === 'deploy' && t.deploy_stage != null && <span style={{ color: 'var(--orange)' }}>({DEPLOY_STAGES[t.deploy_stage]})</span>}

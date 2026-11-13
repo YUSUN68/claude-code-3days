@@ -115,3 +115,33 @@ describe('reminderText', () => {
     expect(reminderText(null)).toBe('알림 시간이에요');
   });
 });
+
+import { completedBetween, presetRange, reportText } from './report';
+
+describe('처리 내역', () => {
+  it('이번 주/지난 주는 월~일', () => {
+    expect(presetRange('thisWeek', '2026-11-13')).toEqual(['2026-11-09', '2026-11-15']);
+    expect(presetRange('lastWeek', '2026-11-13')).toEqual(['2026-11-02', '2026-11-08']);
+    expect(presetRange('thisWeek', '2026-11-15')).toEqual(['2026-11-09', '2026-11-15']);
+  });
+  it('이번 달/지난 달 (연도 넘어감 포함)', () => {
+    expect(presetRange('thisMonth', '2026-11-13')).toEqual(['2026-11-01', '2026-11-30']);
+    expect(presetRange('lastMonth', '2026-01-10')).toEqual(['2025-12-01', '2025-12-31']);
+    expect(presetRange('lastMonth', '2026-03-31')).toEqual(['2026-02-01', '2026-02-28']);
+  });
+  it('기간 안에 완료한 퀘스트만, 최근 완료 순', () => {
+    const at = (d: string) => new Date(`${d}T10:00:00`).toISOString();
+    const mk = (id: string, p: Partial<Task>) => ({ id, kind: 'quest', category: 'work', title: id, status: 'done', xp: 50, ...p }) as Task;
+    const tasks = [
+      mk('a', { completed_at: at('2026-11-10') }),
+      mk('b', { completed_at: at('2026-11-12') }),
+      mk('c', { completed_at: at('2026-11-16') }),
+      mk('d', { status: 'todo', completed_at: null }),
+      mk('e', { category: 'vacation', completed_at: at('2026-11-11') }),
+      mk('f', { kind: 'appointment', category: 'lunch', completed_at: at('2026-11-11') }),
+    ];
+    const list = completedBetween(tasks, '2026-11-09', '2026-11-15');
+    expect(list.map((t) => t.id)).toEqual(['b', 'a']);
+    expect(reportText(list, '2026-11-09', '2026-11-15')).toBe('[11/9(월) ~ 11/15(일)] 완료 2건\n- 11/12(목) [업무] b\n- 11/10(화) [업무] a');
+  });
+});

@@ -4,8 +4,10 @@ import { supabase } from '../lib/supabase';
 import { PixelIcon } from '../components/PixelIcon';
 import { PasswordForm } from '../components/PasswordForm';
 
-/** 비밀번호 재설정 메일 링크가 돌아올 주소. 윈도우 프로그램은 웹 주소를 쓴다 */
-const RESET_URL = (import.meta.env.VITE_WEB_URL as string | undefined) ?? location.origin;
+/** 비밀번호 재설정 메일 링크가 돌아올 주소. 웹은 지금 주소, 윈도우 프로그램(app://)은 배포된 웹 주소 */
+const RESET_URL = location.protocol.startsWith('http')
+  ? location.origin
+  : ((import.meta.env.VITE_WEB_URL as string | undefined) ?? location.origin);
 
 function AuthShell({ children, sub }: { children: ReactNode; sub?: string }) {
   return (

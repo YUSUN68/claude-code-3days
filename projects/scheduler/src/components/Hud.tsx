@@ -12,6 +12,8 @@ import { Modal } from './Modal';
 import { PasswordForm } from './PasswordForm';
 import { PixelIcon } from './PixelIcon';
 
+const DOWNLOAD_URL = import.meta.env.VITE_DOWNLOAD_URL as string | undefined;
+
 export function Hud({ pip }: { pip: { supported: boolean; open(): Promise<boolean>; isOpen: boolean } }) {
   const { tasks, today } = useTasks();
   const onCalendar = useLocation().pathname.startsWith('/calendar');
@@ -35,9 +37,10 @@ export function Hud({ pip }: { pip: { supported: boolean; open(): Promise<boolea
   }, []);
 
   // 웹에서만: 윈도우 설치 파일이 있는지와 크기 확인
+  // 배포판은 VITE_DOWNLOAD_URL(GitHub Releases)로 바로 받고, 로컬 개발 서버는 release 폴더에서 받는다
   const [installer, setInstaller] = useState<{ ok: boolean; mb: number } | null>(null);
   useEffect(() => {
-    if (desktop || !menu || installer) return;
+    if (desktop || !menu || installer || DOWNLOAD_URL) return;
     fetch('/download/windows', { method: 'HEAD', cache: 'no-store' })
       .then((r) => setInstaller({ ok: r.ok, mb: Math.round(Number(r.headers.get('Content-Length') ?? 0) / 1024 / 1024) }))
       .catch(() => setInstaller({ ok: false, mb: 0 }));
@@ -133,7 +136,12 @@ export function Hud({ pip }: { pip: { supported: boolean; open(): Promise<boolea
                 </>
               )}
               {!desktop &&
-                (installer?.ok ? (
+                (DOWNLOAD_URL ? (
+                  <a className="btn" href={DOWNLOAD_URL}>
+                    <PixelIcon name="dashboard" size={14} />
+                    윈도우 프로그램 다운로드
+                  </a>
+                ) : installer?.ok ? (
                   <a className="btn" href="/download/windows" download>
                     <PixelIcon name="dashboard" size={14} />
                     윈도우 프로그램 다운로드 <span className="tiny muted">({installer.mb}MB)</span>

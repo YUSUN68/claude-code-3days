@@ -8,6 +8,7 @@ import { firstWorkdayFrom, lastWorkdayBetween } from '../lib/workdays';
 import { useTasks } from '../hooks/useTasks';
 import { PixelIcon, type IconName } from './PixelIcon';
 import { QuestCard } from './QuestCard';
+import { ReportModal } from './Report';
 
 export function Panel({ icon, title, count, children, action }: { icon?: IconName; title: string; count?: ReactNode; children: ReactNode; action?: ReactNode }) {
   return (
@@ -305,6 +306,7 @@ export function AllQuests() {
   const { tasks } = useTasks();
   const [filter, setFilter] = useState<QuestCategory | 'all'>('all');
   const [showDone, setShowDone] = useState(false);
+  const [report, setReport] = useState(false);
   const list = tasks
     .filter((t) => t.kind === 'quest' && (filter === 'all' || t.category === filter) && (showDone || t.status === 'todo'))
     .sort((a, b) => {
@@ -312,7 +314,17 @@ export function AllQuests() {
       return (a.due_at ?? '9999') < (b.due_at ?? '9999') ? -1 : 1;
     });
   return (
-    <Panel icon="training" title="QUEST LOG" count={`${list.length}건`}>
+    <Panel
+      icon="training"
+      title="QUEST LOG"
+      count={`${list.length}건`}
+      action={
+        <button className="btn small" onClick={() => setReport(true)}>
+          처리 내역
+        </button>
+      }
+    >
+      {report && <ReportModal onClose={() => setReport(false)} />}
       <div className="chip-set" style={{ marginBottom: 10 }}>
         <button className="chip" aria-pressed={filter === 'all'} onClick={() => setFilter('all')}>
           전체

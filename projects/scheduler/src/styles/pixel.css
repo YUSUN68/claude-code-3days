@@ -187,6 +187,7 @@ label.field { display: grid; gap: 4px; font-size: 12px; color: var(--ink-dim); }
 .q-meta .xp { color: var(--yellow); margin-left: auto; }
 .q-meta .warn { color: #ff8a8a; }
 .q-meta .loc { color: var(--ink-dim); }
+.q-meta .done-at { color: var(--green); }
 .bang { color: var(--orange); font-family: var(--font-title); font-size: 12px; }
 .check {
   width: 18px; height: 18px; flex: none; margin-top: 1px; cursor: pointer;
@@ -442,3 +443,20 @@ label.field { display: grid; gap: 4px; font-size: 12px; color: var(--ink-dim); }
 /* SOCIAL: 다가오는 약속 */
 .social-upcoming { margin-top: 14px; padding-top: 10px; border-top: 2px dashed var(--ink-mute); }
 .social-sub { font-size: 12px; color: var(--ink-dim); }
+
+/* 처리 내역 */
+.report { display: grid; gap: 10px; }
+.report-range { display: flex; align-items: center; gap: 8px; }
+.report-range .input { flex: 1; min-width: 0; color-scheme: dark; }
+.report-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.report-stats > div { background: var(--bg-deep); border: 2px solid var(--ink-mute); padding: 6px 10px; display: grid; }
+.report-stats b { font-size: 24px; font-weight: 400; line-height: 1.3; }
+.report-cats { display: flex; flex-wrap: wrap; gap: 4px 12px; font-size: 12px; }
+.report-list { border-top: 2px solid var(--ink-mute); max-height: 46vh; overflow-y: auto; }
+.report-day { color: var(--yellow); font-size: 12px; padding: 8px 4px 2px; }
+.report-row { display: flex; gap: 8px; align-items: baseline; width: 100%; text-align: left; background: none; border: 0; border-bottom: 1px dashed var(--ink-mute); color: var(--ink); font: inherit; font-size: 12px; padding: 6px 4px; cursor: pointer; }
+.report-row:hover { background: rgba(255,255,255,.06); }
+.report-row .ok { color: var(--green); }
+.report-row .title { flex: 1; min-width: 0; overflow-wrap: anywhere; }
+.report-row .xp { color: var(--yellow); white-space: nowrap; }
+.report-foot { display: flex; justify-content: flex-end; }

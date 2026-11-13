@@ -1,5 +1,7 @@
 # 클로드 코드 3일 작업 모음 (2026-11-11 ~ 11-13)
 
+> 마지막 업데이트: 2026-11-13 14:15 (KST)
+
 멀티캠퍼스 「비개발자를 위한 바이브코딩 입문 with 클로드 코드」 수업을 들으며 3일 동안 Claude Code로 만든 **모든 결과물과 대화 기록**을 한곳에 모았습니다.
 다른 컴퓨터에서 이 저장소 하나만 받으면 바로 이어서 쓸 수 있습니다.
 
@@ -24,7 +26,7 @@
 | 11-11 | [`goguma`](projects/goguma) | 🍠 고구마마켓: 중고거래 (회원·상품·좋아요·채팅·알림) | Next.js 16 + Supabase + Vercel | [배포 사이트](https://goguma-market-flame.vercel.app) · [원본 저장소](https://github.com/YUSUN68/goguma-market) |
 | 11-11~13 | [`shopping`](projects/shopping) | ONGI 인테리어 선물 쇼핑몰 (예산 슬라이더, 토스 테스트 결제, 상세페이지) | Next.js 15 + Supabase + Toss | [배포 사이트](https://ongi-shop.vercel.app) |
 | 11-12 | [`multicampus-2026-09-practice`](projects/multicampus-2026-09-practice) | 업무 자동화 실습: 데이터 정리, 매출 통합·대시보드, 스킬 설치·제작 | Python + Claude 스킬 | `03_매출데이터/…대시보드.html` |
-| 11-13 | [`scheduler`](projects/scheduler) | ⚔️ 퀘스트 스케줄러: 업무를 게임 퀘스트처럼, 웹 + 윈도우 위젯 | Vite + React + Supabase + Electron | [설치 파일](https://github.com/YUSUN68/claude-code-3days/releases) |
+| 11-13 | [`scheduler`](projects/scheduler) | ⚔️ 퀘스트 스케줄러: 업무를 게임 퀘스트처럼, 웹 + 윈도우 위젯 | Vite + React + Supabase + Electron | [배포 사이트](https://quest-scheduler-red.vercel.app) · [원본 저장소](https://github.com/YUSUN68/quest-scheduler) · [설치 파일](https://github.com/YUSUN68/claude-code-3days/releases) |
 | 11-13 | [`mywiki`](projects/mywiki) | 카파시의 「LLM 위키」 방식으로 만든 개인 위키 (Obsidian) | Markdown | `wiki/index.md` |
 
 ## 💻 다른 컴퓨터에서 쓰기
@@ -79,5 +81,5 @@ Claude가 저장소 맨 위의 [`CLAUDE.md`](CLAUDE.md)를 읽고 아래 순서�
 
 ## 📝 참고
 - 각 프로젝트 폴더의 `README.md`, `CLAUDE.md`, `AGENTS.md`에 프로젝트별 설명과 Claude용 주의사항이 있습니다.
-- 가계부·goguma는 원래 저장소(위 링크)에 커밋 기록이 따로 있고, 여기에는 11-13 기준 최신 파일만 담았습니다. shopping의 상세페이지 작업(11-13)은 원래 폴더에서 아직 커밋 전이던 변경까지 포함했습니다.
+- 가계부·goguma·scheduler는 원래 저장소(위 링크)에 커밋 기록이 따로 있고, 여기에는 11-13 기준 최신 파일만 담았습니다. shopping의 상세페이지 작업(11-13)은 원래 폴더에서 아직 커밋 전이던 변경까지 포함했습니다.
 - 대화 기록 원본(.jsonl, 약 50MB)은 내부 도구 출력과 비밀값이 섞여 있어 올리지 않았습니다. 원본은 작업한 PC의 `%USERPROFILE%\.claude\projects\`에 남아 있습니다.

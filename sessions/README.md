@@ -28,6 +28,6 @@ API 키·토큰·이메일 주소·생년월일은 가렸습니다.
 | 2026-11-12 16:13 | `multicampus-2026-09-practice` | [포르투갈어/중국어 번역 서브에이전트](2026-11-12_multicampus-2026-09-practice_109b7717.md) | 1 |
 | 2026-11-12 16:37 | `multicampus-2026-09-practice` | [쿠팡 갤럭시 폴드8 케이스](2026-11-12_multicampus-2026-09-practice_6ff88d67.md) | 3 |
 | 2026-11-12 17:00 | `multicampus-2026-09-practice` | [클로드코드 학습 및 자동화 정리](2026-11-12_multicampus-2026-09-practice_f541e50f.md) | 3 |
-| 2026-11-13 09:36 | `scheduler` | [업무 스케줄러 앱](2026-11-13_scheduler_67491744.md) | 32 |
+| 2026-11-13 09:36 | `scheduler` | [업무 스케줄러 앱](2026-11-13_scheduler_67491744.md) | 38 |
 | 2026-11-13 11:27 | `mywiki` | [개인 위키백과 구축](2026-11-13_mywiki_af685dc1.md) | 3 |
-| 2026-11-13 13:39 | `scheduler` | [Claude 작업 내역 GitHub 정리](2026-11-13_scheduler_cad8ff6a.md) | 1 |
+| 2026-11-13 13:39 | `scheduler` | [Claude 작업 내역 GitHub 정리](2026-11-13_scheduler_cad8ff6a.md) | 3 |
